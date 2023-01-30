@@ -2,15 +2,19 @@ const number = document.querySelector(".number");
 const intervalNumber = document.querySelector("#intervalNumber");
 const btnGenerate = document.querySelector(".generate");
 
+function rangeMax(range) {
+  const randomNumber = Math.floor(Math.random() * range + 1);
+  return (number.innerHTML = randomNumber);
+}
+
 const generateNumber = () => {
-  let intervalNumberChooise = +intervalNumber.value;
+  let intervalNumberChooise = Number(intervalNumber.value);
+
   if (!intervalNumberChooise) {
-    const randomNumber = Math.floor(Math.random() * 10);
-    number.innerHTML = randomNumber;
-  } else {
-    const randomNumber = Math.floor(Math.random() * intervalNumberChooise + 1);
-    number.innerHTML = randomNumber;
+    return rangeMax(10);
   }
+
+  return rangeMax(intervalNumberChooise);
 };
 
 btnGenerate.addEventListener("click", () => {
